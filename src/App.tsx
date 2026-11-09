@@ -6,10 +6,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   FERRET_SECTIONS,
+  HERO_CONTENT,
   resolveActiveSectionId,
   calculateReadingProgress,
 } from './data/sections';
 import { Navbar } from './components/Navbar';
+import { HeroSection } from './components/HeroSection';
 import { SectionBlock } from './components/SectionBlock';
 import { ReadingProgressBar } from './components/ReadingProgressBar';
 
@@ -94,48 +96,9 @@ export default function App() {
 
       {/* Main Content Container */}
       <main className="flex-1 max-w-6xl w-full mx-auto pl-4 pr-6 sm:px-6 lg:px-8">
-        {/* Introductory Overview & Table of Contents Structure */}
+        {/* Introductory Overview, Pocket Animal Profile Sticker Card & Table of Contents */}
         <header className="py-10 sm:py-16">
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-widest text-stone-500 mb-4">
-            <span>Mustela putorius furo</span>
-            <span aria-hidden="true">·</span>
-            <span>Single-Page Care &amp; Husbandry Framework</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-10">
-            <div className="lg:col-span-7">
-              <h1
-                className="text-3xl sm:text-5xl font-serif font-medium text-stone-900 tracking-tight mb-5"
-                style={{ textWrap: 'balance' }}
-              >
-                Domestic Ferret Care &amp; Veterinary Reference
-              </h1>
-
-              <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl">
-                [Placeholder — General Introduction] This single-page layout provides
-                the structural foundation for introducing domestic ferrets across four
-                core topics: Housing, Nutrition, Handling, and Significant Veterinary
-                Issues. Use the navigation bar above or the section index below to jump
-                smoothly to any topic.
-              </p>
-            </div>
-
-            {/* Hero Primary Image Placeholder */}
-            <figure className="lg:col-span-5 w-full">
-              <div
-                role="img"
-                aria-label="Hero Overview Image Placeholder — Reserved for primary ferret portrait or habitat banner"
-                className="w-full aspect-[16/10] rounded-md border border-dashed border-stone-300 bg-[#F4F1EA] flex flex-col items-center justify-center p-6 text-center"
-              >
-                <span className="text-xs uppercase tracking-widest text-stone-500 mb-1">
-                  Hero Image Placeholder
-                </span>
-                <span className="text-xs sm:text-sm text-stone-600 max-w-xs">
-                  Reserved for your primary ferret introductory photograph.
-                </span>
-              </div>
-            </figure>
-          </div>
+          <HeroSection content={HERO_CONTENT} />
 
           {/* Directory of the 4 Core Subsections */}
           <nav

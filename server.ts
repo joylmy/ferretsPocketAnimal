@@ -329,9 +329,12 @@ async function startServer() {
     }
     const decodedPath = decodeURIComponent(req.path);
     const isSyncedAssetRequest =
-      /^\/(Housing|Nutrition|Handling|Significant veterinary issues)\//i.test(
+      /^\/(Hero|Housing|Nutrition|Handling|Significant veterinary issues)\//i.test(
         decodedPath
-      ) && /\.(webp|png|jpe?g|gif|svg|mp4|webm|mov|txt|pdf)$/i.test(decodedPath);
+      ) &&
+      /\.(webp|png|jpe?g|gif|svg|mp4|webm|mov|mp3|wav|ogg|m4a|aac|txt|pdf)$/i.test(
+        decodedPath
+      );
 
     if (!isSyncedAssetRequest) {
       return next();

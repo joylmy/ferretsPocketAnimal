@@ -1,3 +1,38 @@
+export interface HeroProfileStat {
+  label: string;
+  value: string;
+}
+
+export interface HeroContent {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  stickerImageUrl: string;
+  speechBubbleMain: string;
+  speechBubbleSub: string;
+  soundUrl: string;
+  profileCardTitle: string;
+  profileStats: HeroProfileStat[];
+}
+
+export const HERO_CONTENT: HeroContent = {
+  eyebrow: 'Mustela putorius furo · Pocket Animal Guide',
+  title: 'Domestic Ferret Care & Husbandry Guide',
+  intro:
+    'This single-page guide provides a clear, practical foundation for understanding and caring for domestic ferrets across four core areas: Housing, Nutrition, Handling, and Significant Veterinary Issues. Explore the quick profile card on the right or jump directly to any topic below.',
+  stickerImageUrl: '/assets/aistudio/ferretHero_8f5a07bc.jpg',
+  speechBubbleMain: 'Dook dook!',
+  speechBubbleSub: '(Happy ferret sound)',
+  soundUrl: 'https://www.google.com/logos/fnbx/animal_sounds/ferret.mp3',
+  profileCardTitle: 'Pocket Animal Profile',
+  profileStats: [
+    { label: 'Lifespan', value: '5–10 Years' },
+    { label: 'Sleep', value: '12–18 hrs/day' },
+    { label: 'Diet', value: 'Obligate Carnivore' },
+    { label: 'Social', value: 'Lives in pairs/groups' },
+  ],
+};
+
 export interface SubtopicPlaceholder {
   id: string;
   heading: string;
@@ -46,10 +81,10 @@ export const HOUSING_HOTSPOTS: HousingHotspot[] = [
   {
     id: 'hotspot-ferret-head',
     index: 1,
-    point: "one ferret's head",
+    point: 'two ferrets together',
     label: 'Social Animal',
     text: 'Ferrets are social animals, so the cage should be large enough to hold more than two ferrets.',
-    x: 61,
+    x: 24,
     y: 38,
   },
   {
@@ -65,7 +100,7 @@ export const HOUSING_HOTSPOTS: HousingHotspot[] = [
     id: 'hotspot-stair',
     index: 3,
     point: 'one stair',
-    label: 'Multilevel Ramps & Stairs',
+    label: 'Ferret Nation',
     text: 'Multilevel cages, commonly called "Ferret Nation" cages, are great for up to four ferrets in one enclosure.',
     x: 44,
     y: 48,
