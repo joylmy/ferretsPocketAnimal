@@ -21,11 +21,12 @@ export const HousingHotspotDiagram: React.FC<HousingHotspotDiagramProps> = ({
     setActiveId((prev) => (prev === id ? null : id));
   };
 
+  const normalizedLocalUrl = `${import.meta.env.BASE_URL}${imageUrl.replace(/^\/+/, '')}`;
   const resolvedImgSrc = useFallbackUrl
     ? 'https://lh3.googleusercontent.com/d/1a_Ok92YhxWhkYYHyHJdoPXZwHOTc13cl=w1200'
     : retryCount > 0
-      ? `${imageUrl}?retry=${retryCount}`
-      : imageUrl;
+      ? `${normalizedLocalUrl}?retry=${retryCount}`
+      : normalizedLocalUrl;
 
   const handleImageError = () => {
     if (retryCount < 2) {
