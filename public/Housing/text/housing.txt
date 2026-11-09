@@ -1,0 +1,30 @@
+Housing:
+point: one ferret's head
+text: Ferrets are social animals, so the cage should be large enough to hold more than two ferrets.
+
+point: at the cage door
+text: The cage must be securely closed and locked. Wires should be very narrow to prevent ferrets from escaping.
+
+point: one stair
+text: Multilevel cages, commonly called "Ferret Nation" cages, are great for up to four ferrets in one enclosure.
+
+point: the bottom of the cage
+text: Provide a sturdy, solid floor. Plastic flooring is preferred since it is easy to clean and disinfect. Avoid wooden flooring since it is hard to clean urine and feces.
+
+point: left side of cage
+text: The cage should be well ventilated.
+
+point: at window
+text: Ferrets are very sensitive to heatstroke. Keep the temperature below 32°C.
+
+point: litter box
+text: Keep the litter box in a corner for ferrets to defecate and urinate.
+
+point: one blanket
+text: Towels and blankets are used for bedding.
+
+point: one green hammock
+text: Ferrets sleep 12 to 18 hours a day. They may sleep inside a T-shirt, towel, blanket, ferret tent, or hammock. If you see your ferret chewing on its bedding, remove it immediately.
+
+point: left ceramic bowl
+text: Ferrets easily tip over their dishes. Use heavy ceramic bowls that attach securely to the cage. Also, it is easier for them to drink from a heavy ceramic bowl than a sipper bottle.

@@ -1,0 +1,6 @@
+{
+  "name": "Ferret Care & Husbandry Guide",
+  "description": "A clean, responsive single-page reference guide covering ferret housing, nutrition, handling, and significant veterinary issues.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
