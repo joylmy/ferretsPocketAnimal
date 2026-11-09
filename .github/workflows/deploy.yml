@@ -29,7 +29,36 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
+
+      - name: Sync Google Drive media into public/
+        run: |
+          npx tsx -e "
+          import fs from 'node:fs/promises';
+          import path from 'node:path';
+          import { DEFAULT_DRIVE_FOLDER_ID, parseEmbeddedFolderHtml, resolvePublicDownloadTarget } from './src/utils/driveSync.ts';
+          async function crawl(folderId: string, parent = '') {
+            const res = await fetch('https://drive.google.com/embeddedfolderview?id=' + encodeURIComponent(folderId) + '#list');
+            if (!res.ok) return;
+            const entries = parseEmbeddedFolderHtml(await res.text());
+            for (const entry of entries) {
+              if (entry.kind === 'folder') {
+                await crawl(entry.id, parent ? parent + '/' + entry.name : entry.name);
+              } else {
+                const { finalFileName, downloadUrl } = resolvePublicDownloadTarget(entry);
+                const rel = parent ? parent + '/' + finalFileName : finalFileName;
+                const dest = path.resolve('public', rel);
+                await fs.mkdir(path.dirname(dest), { recursive: true });
+                const fileRes = await fetch(downloadUrl, { redirect: 'follow' });
+                if (fileRes.ok) {
+                  await fs.writeFile(dest, Buffer.from(await fileRes.arrayBuffer()));
+                  console.log('Synced to public:', rel);
+                }
+              }
+            }
+          }
+          crawl(DEFAULT_DRIVE_FOLDER_ID).catch((err) => console.warn('Drive sync warning:', err));
+          "
 
       - name: Build static site
         run: npm run build
