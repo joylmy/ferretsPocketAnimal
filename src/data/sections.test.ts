@@ -42,6 +42,19 @@ test('Housing section uses cagePic.webp hotspot diagram and removes all placehol
   }
 });
 
+test('Nutrition section includes 6 Q&A toggle items and feature image with placeholders removed', () => {
+  const nutrition = getSectionById('nutrition');
+  assert.ok(nutrition);
+  assert.equal(nutrition.introPlaceholder, '');
+  assert.equal(nutrition.notesPlaceholder, '');
+  assert.equal(nutrition.subtopics.length, 0);
+  assert.equal(nutrition.qaItems?.length, 6);
+  assert.equal(
+    nutrition.featureImageUrl,
+    'https://storage.googleapis.com/decennium-global.appspot.com/knowledge_assets/care_guides/myths-about-ferrets-raw-diet-safety-checklist/hero-g-1784413440446.png'
+  );
+});
+
 test('getSectionById resolves sections with or without hash prefix', () => {
   const housing = getSectionById('#housing');
   assert.ok(housing);

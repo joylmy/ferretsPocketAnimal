@@ -16,10 +16,10 @@ export interface HeroContent {
 }
 
 export const HERO_CONTENT: HeroContent = {
-  eyebrow: 'Mustela putorius furo · Pocket Animal Guide',
-  title: 'Domestic Ferret Care & Husbandry Guide',
+  eyebrow: '',
+  title: 'The Essential Pet Ferret Care Guide',
   intro:
-    'This single-page guide provides a clear, practical foundation for understanding and caring for domestic ferrets across four core areas: Housing, Nutrition, Handling, and Significant Veterinary Issues. Explore the quick profile card on the right or jump directly to any topic below.',
+    'This single-page guide provides a clear, practical foundation for understanding and caring for pet ferrets across four core areas: Housing, Nutrition, Handling, and Significant Veterinary Issues. Explore the quick profile card on the right or jump directly to any topic below.',
   stickerImageUrl: '/assets/aistudio/ferretHero_8f5a07bc.jpg',
   speechBubbleMain: 'Dook dook!',
   speechBubbleSub: '(Happy ferret sound)',
@@ -53,6 +53,12 @@ export interface HousingHotspot {
   y: number;
 }
 
+export interface NutritionQAItem {
+  id: string;
+  question: string;
+  answers: string[];
+}
+
 export interface FerretSection {
   id: string;
   number: string;
@@ -66,7 +72,57 @@ export interface FerretSection {
   hotspotImageUrl?: string;
   additionalNotesTitle?: string;
   additionalNotes?: string[];
+  qaItems?: NutritionQAItem[];
+  featureImageUrl?: string;
+  featureImageAlt?: string;
+  featureImageCaption?: string;
 }
+
+export const NUTRITION_QA_ITEMS: NutritionQAItem[] = [
+  {
+    id: 'nutrition-q1',
+    question: 'What should I feed my ferret?',
+    answers: [
+      'Balanced commercial ferret diets are highly recommended for ferrets. The ideal diet ratio should be 30–35% protein, 15–30% fat, and low in fiber. The protein source should be meat-based rather than grains. Meat and its by-products should be the top ingredients in any ferret food.',
+      'An adult ferret needs around 43 g/kg of dry food and 200–300 calories/kg per day.',
+    ],
+  },
+  {
+    id: 'nutrition-q2',
+    question: 'How often should I feed my ferret?',
+    answers: [
+      "It's best to leave food out so they can have their meals 24 hours a day, because ferrets have a very short gut transit time.",
+    ],
+  },
+  {
+    id: 'nutrition-q3',
+    question: "Can I change my ferret's diet frequently?",
+    answers: [
+      "Do not change a ferret's diet frequently. Most ferrets enjoy one brand of commercial diet for their entire lives. Changing their diet can lead to an upset stomach, diarrhea, and pancreatic problems.",
+    ],
+  },
+  {
+    id: 'nutrition-q4',
+    question: 'How often should I feed my ferret if it develops low blood sugar?',
+    answers: [
+      'Ferrets with hypoglycemia (low blood sugar) should be fed several small meals throughout the day.',
+    ],
+  },
+  {
+    id: 'nutrition-q5',
+    question: "What should I avoid in my ferret's diet/treats?",
+    answers: [
+      'Avoid feeding sweets, dairy products, raisins, fruits, and vegetables to your ferrets. These foods may cause diarrhea. Do not feed chocolate, as it can be fatal to ferrets.',
+    ],
+  },
+  {
+    id: 'nutrition-q6',
+    question: 'How much water does my ferret need during the day?',
+    answers: [
+      'Make sure clean water is available 24 hours a day. Most ferrets prefer a heavy bowl over a sipper bottle. Change the water daily to prevent bacteria and yeast from growing.',
+    ],
+  },
+];
 
 export const HOUSING_ADDITIONAL_NOTES: string[] = [
   'Block all openings (holes) that lead to areas you cannot reach. Ferrets can squeeze through surprisingly small openings.',
@@ -191,34 +247,16 @@ export const FERRET_SECTIONS: FerretSection[] = [
     number: '02',
     navLabel: 'Nutrition',
     title: 'Nutrition',
-    subtitle:
-      'Obligate carnivore dietary profile, macronutrient ratios, feeding schedules, and hydration',
-    introPlaceholder:
-      '[Placeholder — Nutrition Overview] This section will outline the strict obligate carnivore physiology of ferrets, including their short gastrointestinal transit time and reliance on high-quality animal proteins and fats. Replace this text with your foundational dietary explanation.',
-    subtopics: [
-      {
-        id: 'nutrition-composition',
-        heading: 'Macronutrient Requirements & Diet Types',
-        placeholderLead:
-          '[Placeholder — Dietary Formulation] Insert target percentages for crude protein, animal fat, fiber ceiling, and carbohydrate restrictions here.',
-        placeholderBody:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Whole-prey, balanced raw, and high-protein extruded kibble comparisons will be documented in this paragraph.',
-        imagePlaceholderCaption:
-          'Figure 2.1 Placeholder — Reserved for nutrition chart, ingredient label comparison, or meal preparation photograph.',
-      },
-      {
-        id: 'nutrition-feeding',
-        heading: 'Feeding Frequency, Hydration & Forbidden Foods',
-        placeholderLead:
-          '[Placeholder — Feeding Management] Insert free-choice vs. scheduled feeding notes, fresh water delivery systems, and toxic food items here.',
-        placeholderBody:
-          'Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Guidelines on avoiding plant proteins, sugars, and gastrointestinal blockages from indigestible treats go here.',
-        imagePlaceholderCaption:
-          'Figure 2.2 Placeholder — Reserved for feeding station and hydration setup illustration.',
-      },
-    ],
-    notesPlaceholder:
-      '[Placeholder — Key Nutrition Summary] Add your quick-reference nutritional values (protein %, fat %, fiber limit, and toxic ingredients list) here.',
+    subtitle: '',
+    introPlaceholder: '',
+    subtopics: [],
+    notesPlaceholder: '',
+    qaItems: NUTRITION_QA_ITEMS,
+    featureImageUrl:
+      'https://storage.googleapis.com/decennium-global.appspot.com/knowledge_assets/care_guides/myths-about-ferrets-raw-diet-safety-checklist/hero-g-1784413440446.png',
+    featureImageAlt: 'Domestic ferrets eating their meal together',
+    featureImageCaption:
+      'Meat-based commercial diet with 30–35% protein, 15–30% fat, and fresh water available 24 hours a day.',
   },
   {
     id: 'handling',

@@ -226,11 +226,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ content }) => {
         </defs>
       </svg>
 
-      {/* Left Column: Editorial Eyebrow, Heading & Intro */}
+      {/* Left Column: Heading & Intro */}
       <div className="lg:col-span-6">
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-widest text-stone-500 mb-4">
-          <span>{content.eyebrow}</span>
-        </div>
+        {content.eyebrow && (
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-widest text-stone-500 mb-4">
+            <span>{content.eyebrow}</span>
+          </div>
+        )}
 
         <h1
           className="text-3xl sm:text-5xl font-serif font-medium text-stone-900 tracking-tight mb-5 leading-[1.12]"
@@ -259,15 +261,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ content }) => {
             <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-5 mb-5 pb-5 border-b border-stone-300/80">
               {/* Profile Header Title (Below ferret on mobile/tablet, Left on desktop) */}
               <div className="text-center lg:text-left min-w-0 flex-1">
-                <div className="text-[11px] sm:text-xs uppercase tracking-widest text-stone-500 mb-1">
-                  Mustela putorius furo
-                </div>
                 <h2 className="text-xl sm:text-2xl font-serif font-semibold text-stone-900 tracking-tight leading-snug">
                   {content.profileCardTitle}
                 </h2>
-                <p className="text-xs sm:text-sm text-stone-600 mt-1.5 leading-relaxed max-w-md mx-auto lg:mx-0">
-                  Click the speaker icon or ferret sticker to hear its happy vocalization.
-                </p>
               </div>
 
               {/* Speech Bubble + Die-Cut Ferret Sticker (Above title on mobile/tablet, Right on desktop) */}
