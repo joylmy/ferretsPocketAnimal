@@ -19,17 +19,20 @@ export const HERO_CONTENT: HeroContent = {
   eyebrow: '',
   title: 'The Essential Pet Ferret Care Guide',
   intro:
-    'This single-page guide provides a clear, practical foundation for understanding and caring for pet ferrets across four core areas: Housing, Nutrition, Handling, and Significant Veterinary Issues. Explore the quick profile card on the right or jump directly to any topic below.',
+    'Are you considering getting a pet ferret? Here’s everything you need to know.',
   stickerImageUrl: '/assets/aistudio/ferretHero_8f5a07bc.jpg',
   speechBubbleMain: 'Dook dook!',
   speechBubbleSub: '(Happy ferret sound)',
   soundUrl: 'https://www.google.com/logos/fnbx/animal_sounds/ferret.mp3',
-  profileCardTitle: 'Pocket Animal Profile',
+  profileCardTitle: 'Ferret Profile',
   profileStats: [
     { label: 'Lifespan', value: '5–10 Years' },
+    { label: 'Weight', value:'Male:0.9-2.0kg, Female:0.6-1.0kg'},
+    { label: 'Size', value:'body 33-45 cm plus 7-15 cm tail'},
     { label: 'Sleep', value: '12–18 hrs/day' },
-    { label: 'Diet', value: 'Obligate Carnivore' },
+    { label: 'Diet', value: 'Carnivore' },
     { label: 'Social', value: 'Lives in pairs/groups' },
+    
   ],
 };
 

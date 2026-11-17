@@ -18,14 +18,14 @@ export const ReadingProgressBar: React.FC<ReadingProgressBarProps> = ({
         aria-valuenow={progress}
         aria-valuemin={0}
         aria-valuemax={100}
-        className="w-[2px] sm:w-1 flex-1 bg-stone-200/80 rounded-full overflow-hidden mr-0.5"
+        className="w-[2px] sm:w-1 flex-1 bg-[#DCE4D8] rounded-full overflow-hidden mr-0.5"
       >
         <div
-          className="w-full bg-stone-800 rounded-full transition-all duration-150 ease-out"
+          className="w-full bg-[#4A5D3B] rounded-full transition-all duration-150 ease-out"
           style={{ height: `${progress}%` }}
         />
       </div>
-      <span className="text-[8px] sm:text-[9px] font-mono tabular-nums tracking-tighter text-stone-400 leading-none">
+      <span className="text-[8px] sm:text-[9px] font-mono tabular-nums tracking-tighter text-[#6E8265] leading-none">
         {progress}%
       </span>
     </aside>

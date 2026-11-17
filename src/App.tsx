@@ -96,37 +96,9 @@ export default function App() {
 
       {/* Main Content Container */}
       <main className="flex-1 max-w-6xl w-full mx-auto pl-4 pr-6 sm:px-6 lg:px-8">
-        {/* Introductory Overview, Pocket Animal Profile Sticker Card & Table of Contents */}
-        <header className="py-10 sm:py-16">
+        {/* Introductory Overview & Pocket Animal Profile Sticker Card */}
+        <header className="pt-10 pb-6 sm:pt-16 sm:pb-10">
           <HeroSection content={HERO_CONTENT} />
-
-          {/* Directory of the 4 Core Subsections */}
-          <nav
-            aria-label="Table of contents"
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-8 border-t border-stone-200"
-          >
-            {FERRET_SECTIONS.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(section.id);
-                }}
-                className="group block py-3 border-b border-stone-200 sm:border-b-0 hover:border-stone-400 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
-              >
-                <div className="text-xs uppercase tracking-widest text-stone-500 mb-1">
-                  {section.number} · Section
-                </div>
-                <div className="text-base font-serif font-medium text-stone-900 group-hover:text-stone-700 transition-colors">
-                  {section.title}
-                </div>
-                <p className="text-xs text-stone-600 mt-1 line-clamp-2 leading-relaxed">
-                  {section.subtitle}
-                </p>
-              </a>
-            ))}
-          </nav>
         </header>
 
         {/* Four Core Content Subsections */}

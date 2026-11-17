@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, PawPrint } from 'lucide-react';
 import { FerretSection } from '../data/sections';
 
 interface NavbarProps {
@@ -25,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-[#FBF9F5]/95 backdrop-blur-sm border-b border-stone-200">
+    <header className="sticky top-0 z-40 bg-[#FBF9F5]/95 backdrop-blur-sm border-b border-[#D8E0D2]">
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-8 px-4 sm:px-6 lg:px-8 h-16">
         {/* Zone 1: Brand Title */}
         <a
@@ -35,9 +35,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             setMobileMenuOpen(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="text-lg font-serif font-semibold tracking-tight text-stone-900 whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+          className="inline-flex items-center gap-2 text-lg font-serif font-semibold tracking-tight text-[#3A4D2E] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3A4D2E]"
         >
-          Ferret Guide
+          <PawPrint className="w-4 h-4 text-[#7A9170] -rotate-12" aria-hidden="true" />
+          <span>Ferret Guide</span>
         </a>
 
         {/* Zone 2: 4 Navigation Links (Desktop) */}
@@ -53,10 +54,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 href={`#${section.id}`}
                 onClick={(e) => handleNavClick(e, section.id)}
                 aria-current={isActive ? 'location' : undefined}
-                className={`py-1 whitespace-nowrap shrink-0 transition-colors border-b-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900 ${
+                className={`py-1 whitespace-nowrap shrink-0 transition-colors border-b-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#3A4D2E] ${
                   isActive
-                    ? 'border-stone-900 text-stone-950 font-semibold'
-                    : 'border-transparent text-stone-600 hover:text-stone-900 hover:border-stone-300'
+                    ? 'border-[#4A5D3B] text-[#3A4D2E] font-semibold'
+                    : 'border-transparent text-stone-600 hover:text-[#3A4D2E] hover:border-[#B5C5AD]'
                 }`}
               >
                 {section.navLabel}
@@ -65,16 +66,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Zone 3: Primary Action on Desktop / Menu Toggle on Mobile */}
-        <div className="flex items-center gap-3 shrink-0">
-          <a
-            href="#housing"
-            onClick={(e) => handleNavClick(e, 'housing')}
-            className="hidden md:inline-flex items-center justify-center px-4 py-2 text-xs font-medium text-stone-50 bg-stone-900 rounded-md hover:bg-stone-800 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
-          >
-            Start Reading
-          </a>
-
+        {/* Zone 3: Menu Toggle on Mobile */}
+        <div className="flex items-center gap-3 shrink-0 md:hidden">
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
@@ -83,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             aria-label={
               mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'
             }
-            className="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-md text-stone-700 hover:text-stone-950 hover:bg-stone-200/60 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+            className="inline-flex items-center justify-center w-11 h-11 rounded-md text-stone-700 hover:text-stone-950 hover:bg-stone-200/60 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
           >
             {mobileMenuOpen ? (
               <X className="w-5 h-5" aria-hidden="true" />

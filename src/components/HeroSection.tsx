@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Volume2 } from 'lucide-react';
+import { Volume2, PawPrint } from 'lucide-react';
 import { HeroContent } from '../data/sections';
 
 interface HeroSectionProps {
@@ -176,7 +176,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ content }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-12">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-4">
       {/* Hidden SVG Filter that generates the contour-hugging white die-cut sticker outline + drop shadow */}
       <svg className="sr-only" aria-hidden="true">
         <defs>
@@ -229,13 +229,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ content }) => {
       {/* Left Column: Heading & Intro */}
       <div className="lg:col-span-6">
         {content.eyebrow && (
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-widest text-stone-500 mb-4">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-widest text-[#687D5F] mb-4">
             <span>{content.eyebrow}</span>
           </div>
         )}
 
         <h1
-          className="text-3xl sm:text-5xl font-serif font-medium text-stone-900 tracking-tight mb-5 leading-[1.12]"
+          className="text-3xl sm:text-5xl font-serif font-medium text-[#3A4D2E] tracking-tight mb-5 leading-[1.12]"
           style={{ textWrap: 'balance' }}
         >
           {content.title}
@@ -246,24 +246,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ content }) => {
         </p>
       </div>
 
-      {/* Right Column: Enlarged Pocket Animal Profile Card + Die-Cut Ferret Sticker */}
+      {/* Right Column: Enlarged Ferret Profile Card + Die-Cut Ferret Sticker */}
       <div className="lg:col-span-6 w-full pt-10 sm:pt-14 lg:pt-12">
         <div className="relative mx-auto max-w-xl">
-          {/* Enlarged Pocket Animal Profile Card */}
-          <div className="relative rounded-2xl border border-stone-300/90 bg-[#F3EFE6] p-5 sm:p-8 shadow-md">
-            {/* Washi Tape Scrapbook Accent at Top Left */}
+          {/* Enlarged Ferret Profile Card */}
+          <div className="relative rounded-2xl border border-[#CBD6C3] bg-[#F3EFE6] p-5 sm:p-8 shadow-md">
+            {/* Sage Green Washi Tape Scrapbook Accent at Top Left */}
             <div
               aria-hidden="true"
-              className="hidden sm:block absolute -top-3 left-10 w-24 h-6 bg-[#E6DEC8]/85 border border-stone-300/60 -rotate-2 shadow-xs pointer-events-none"
+              className="hidden sm:block absolute -top-3 left-10 w-24 h-6 bg-[#CEDAC8]/90 border border-[#B5C5AD]/80 -rotate-2 shadow-xs pointer-events-none"
             />
 
             {/* Top Row inside Card: Ferret & Speech Bubble above Title on Mobile/Tablet (< lg), Right of Title on Desktop (lg:) */}
-            <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-5 mb-5 pb-5 border-b border-stone-300/80">
+            <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-4 lg:gap-5 mb-5 pb-5 border-b border-dashed border-[#C7D3C0]">
               {/* Profile Header Title (Below ferret on mobile/tablet, Left on desktop) */}
               <div className="text-center lg:text-left min-w-0 flex-1">
-                <h2 className="text-xl sm:text-2xl font-serif font-semibold text-stone-900 tracking-tight leading-snug">
-                  {content.profileCardTitle}
-                </h2>
+                <div className="inline-flex items-center gap-2">
+                  <PawPrint
+                    className="w-4 h-4 text-[#7A9170] -rotate-12 shrink-0"
+                    aria-hidden="true"
+                  />
+                  <h2 className="text-xl sm:text-2xl font-serif font-semibold text-[#3A4D2E] tracking-tight leading-snug">
+                    {content.profileCardTitle}
+                  </h2>
+                  <PawPrint
+                    className="w-3.5 h-3.5 text-[#9BB092] rotate-12 shrink-0"
+                    aria-hidden="true"
+                  />
+                </div>
               </div>
 
               {/* Speech Bubble + Die-Cut Ferret Sticker (Above title on mobile/tablet, Right on desktop) */}
@@ -271,7 +281,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ content }) => {
                 {/* Interactive Speech Bubble shifted 5% further right & swaying together with ferret on hover */}
                 <div className="translate-x-[5%] mb-2">
                   <div
-                    className={`relative z-30 bg-white border border-stone-300 rounded-2xl px-3 sm:px-3.5 py-2 shadow-md flex items-center gap-2.5 transition-transform duration-300 ${
+                    className={`relative z-30 bg-white border border-[#C7D3C0] rounded-2xl px-3 sm:px-3.5 py-2 shadow-md flex items-center gap-2.5 transition-transform duration-300 ${
                       isHoveringFerret
                         ? 'ferret-sway-active'
                         : isPlaying
@@ -280,10 +290,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ content }) => {
                     }`}
                   >
                     <div>
-                      <div className="text-xs sm:text-sm font-serif font-semibold text-stone-900 leading-tight">
+                      <div className="text-xs sm:text-sm font-serif font-semibold text-[#3A4D2E] leading-tight">
                         {content.speechBubbleMain}
                       </div>
-                      <div className="text-[10px] sm:text-xs text-stone-500 leading-tight mt-0.5">
+                      <div className="text-[10px] sm:text-xs text-[#687D5F] leading-tight mt-0.5">
                         {content.speechBubbleSub}
                       </div>
                     </div>
@@ -293,10 +303,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ content }) => {
                       onClick={handlePlaySound}
                       aria-label="Play ferret sound"
                       title="Play ferret sound (Dook dook!)"
-                      className={`inline-flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full border transition-all cursor-pointer shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 ${
+                      className={`inline-flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full border transition-all cursor-pointer shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A5D3B] ${
                         isPlaying
-                          ? 'bg-blue-600 border-blue-600 text-white scale-110 ring-4 ring-blue-200'
-                          : 'bg-stone-100 hover:bg-blue-50 border-stone-300 hover:border-blue-300 text-stone-800 hover:text-blue-700'
+                          ? 'bg-[#4A5D3B] border-[#4A5D3B] text-white scale-110 ring-4 ring-[#CEDAC8]'
+                          : 'bg-[#EBF0E8] hover:bg-[#DCE6D6] border-[#BFCDB8] text-[#3A4D2E]'
                       }`}
                     >
                       <Volume2
@@ -307,7 +317,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ content }) => {
                     {/* Speech Bubble Tail pointing down toward the ferret's head */}
                     <span
                       aria-hidden="true"
-                      className="absolute -bottom-1.5 left-10 w-3 h-3 bg-white border-b border-r border-stone-300 rotate-45"
+                      className="absolute -bottom-1.5 left-10 w-3 h-3 bg-white border-b border-r border-[#C7D3C0] rotate-45"
                     />
                   </div>
                 </div>
@@ -344,17 +354,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ content }) => {
               </div>
             </div>
 
-            {/* 2x2 Spacious Profile Stats Grid */}
-            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+            {/* 2x3 Spacious Profile Stats Grid */}
+            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
               {content.profileStats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-xl bg-[#FAF8F3] border border-stone-200/90 px-4 py-3.5 shadow-2xs"
+                  className="rounded-xl bg-[#3A4D2E] border border-[#D8E0D2] px-4 py-3 shadow-2xs"
                 >
-                  <dt className="text-xs font-semibold uppercase tracking-wider text-stone-500">
+                  <dt className="text-xs font-semibold uppercase tracking-wider text-[#FBF9F5]">
                     {stat.label}
                   </dt>
-                  <dd className="text-base sm:text-lg font-serif font-medium text-stone-900 mt-1">
+                  <dd className="text-sm sm:text-base font-serif font-medium text-[#F3EFE6] mt-1">
                     {stat.value}
                   </dd>
                 </div>
