@@ -57,7 +57,13 @@ jobs:
               }
             }
           }
-          crawl(DEFAULT_DRIVE_FOLDER_ID).catch((err) => console.warn('Drive sync warning:', err));
+          (async () => {
+            try {
+              await crawl(DEFAULT_DRIVE_FOLDER_ID);
+            } catch (err) {
+              console.warn('Drive sync warning:', err);
+            }
+          })();
           "
 
       - name: Build static site
