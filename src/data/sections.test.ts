@@ -55,6 +55,52 @@ test('Nutrition section includes 6 Q&A toggle items and feature image with place
   );
 });
 
+test('Handling section includes Step One, Step Two with image, scruff warning, and 6 bold-phrase cards', () => {
+  const handling = getSectionById('handling');
+  assert.ok(handling);
+  assert.equal(handling.introPlaceholder, '');
+  assert.equal(handling.notesPlaceholder, '');
+  assert.equal(handling.subtopics.length, 0);
+  assert.ok(handling.handlingContent);
+  assert.equal(handling.handlingContent.steps.length, 2);
+  assert.equal(
+    handling.handlingContent.steps[1].imageUrl,
+    '/Handling/picture/step2-handling.png'
+  );
+  assert.deepEqual(
+    handling.handlingContent.topicCards.map((c) => c.heading),
+    [
+      'How socialization impacts ferrets',
+      'Trust handling',
+      'Environmental factors',
+      'High-value food rewards',
+      'Blanket handling',
+    ]
+  );
+});
+
+test('Significant Veterinary Issues section includes 2 overview bullets and 7 original-text diseases', () => {
+  const vet = getSectionById('veterinary-issues');
+  assert.ok(vet);
+  assert.equal(vet.introPlaceholder, '');
+  assert.equal(vet.notesPlaceholder, '');
+  assert.equal(vet.subtopics.length, 0);
+  assert.ok(vet.veterinaryContent);
+  assert.equal(vet.veterinaryContent.overviewBullets.length, 2);
+  assert.deepEqual(
+    vet.veterinaryContent.diseases.map((d) => d.heading),
+    [
+      'Foreign object ingestion',
+      'Congestive heart failure',
+      'Cancer',
+      'Aleutian disease',
+      'Epizootic catarrhal enteritis',
+      'Adrenal-associated endocrinopathy',
+      'Proliferative colitis',
+    ]
+  );
+});
+
 test('getSectionById resolves sections with or without hash prefix', () => {
   const housing = getSectionById('#housing');
   assert.ok(housing);

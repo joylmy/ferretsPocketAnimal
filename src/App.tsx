@@ -111,48 +111,54 @@ export default function App() {
 
       {/* Clean Editorial Footer */}
       <footer className="border-t border-stone-200 mt-12 py-10 bg-[#F7F4EE]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-stone-600">
-          <nav
-            aria-label="Footer section navigation"
-            className="flex flex-wrap items-center gap-2"
-          >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4 text-xs text-stone-600">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <nav
+              aria-label="Footer section navigation"
+              className="flex flex-wrap items-center gap-2"
+            >
+              <a
+                href="#top"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="font-semibold text-stone-900 hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+              >
+                Ferret Guide
+              </a>
+              {FERRET_SECTIONS.map((section) => (
+                <React.Fragment key={section.id}>
+                  <span aria-hidden="true">·</span>
+                  <a
+                    href={`#${section.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(section.id);
+                    }}
+                    className="hover:text-stone-950 hover:underline underline-offset-4 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+                  >
+                    {section.navLabel}
+                  </a>
+                </React.Fragment>
+              ))}
+            </nav>
+
             <a
               href="#top"
               onClick={(e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="font-semibold text-stone-900 hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
+              className="font-medium text-stone-800 hover:text-stone-950 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
             >
-              Ferret Guide
+              Back to top ↑
             </a>
-            {FERRET_SECTIONS.map((section) => (
-              <React.Fragment key={section.id}>
-                <span aria-hidden="true">·</span>
-                <a
-                  href={`#${section.id}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(section.id);
-                  }}
-                  className="hover:text-stone-950 hover:underline underline-offset-4 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
-                >
-                  {section.navLabel}
-                </a>
-              </React.Fragment>
-            ))}
-          </nav>
+          </div>
 
-          <a
-            href="#top"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="font-medium text-stone-800 hover:text-stone-950 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-stone-900"
-          >
-            Back to top ↑
-          </a>
+          <p className="text-center text-stone-500 pt-2">
+            Made by Mengyuan Li &amp; Michaela Plumb 2026
+          </p>
         </div>
       </footer>
     </div>

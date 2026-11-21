@@ -62,6 +62,39 @@ export interface NutritionQAItem {
   answers: string[];
 }
 
+export interface HandlingStep {
+  id: string;
+  stepLabel: string;
+  text: string;
+  subBullet?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+}
+
+export interface HandlingTopicCard {
+  id: string;
+  heading: string;
+  paragraphs: string[];
+}
+
+export interface HandlingContent {
+  steps: HandlingStep[];
+  scruffWarningHeading: string;
+  scruffWarningText: string;
+  topicCards: HandlingTopicCard[];
+}
+
+export interface VeterinaryDiseaseItem {
+  id: string;
+  heading: string;
+  paragraphs: string[];
+}
+
+export interface VeterinaryContent {
+  overviewBullets: string[];
+  diseases: VeterinaryDiseaseItem[];
+}
+
 export interface FerretSection {
   id: string;
   number: string;
@@ -79,7 +112,132 @@ export interface FerretSection {
   featureImageUrl?: string;
   featureImageAlt?: string;
   featureImageCaption?: string;
+  handlingContent?: HandlingContent;
+  veterinaryContent?: VeterinaryContent;
 }
+
+export const VETERINARY_CONTENT: VeterinaryContent = {
+  overviewBullets: [
+    'Common conditions of pet ferrets include diarrhea, intestinal foreign bodies, parasites, heart disease, and various tumors.',
+    'Ferrets are extremely susceptible to stress-related gastric ulcers.',
+  ],
+  diseases: [
+    {
+      id: 'vet-foreign-object',
+      heading: 'Foreign object ingestion',
+      paragraphs: [
+        'Foreign object ingestion is a common problem in ferrets, especially ferrets less than one year old.',
+        'Common signs of foreign object ingestion are the same as many other diseases, including anorexia, vomiting, lethargy, diarrhea, and progressive weight loss.',
+      ],
+    },
+    {
+      id: 'vet-heart-failure',
+      heading: 'Congestive heart failure',
+      paragraphs: [
+        'Ferrets can develop congestive heart failure due to cardiomyopathy (improper function of the heart muscle), usually when they are over three years old. They can also develop heart failure due to heartworm infection. All ferrets should be on a monthly heartworm preventive.',
+      ],
+    },
+    {
+      id: 'vet-cancer',
+      heading: 'Cancer',
+      paragraphs: [
+        'Ferrets commonly develop cancer somewhat early in life. Since early detection is critical to survival, every ferret should have yearly health examinations.',
+        'The three most common types of cancer are pancreatic adenocarcinoma (insulinoma), adrenal gland tumors, and lymphosarcoma (cancer of the lymph nodes and lymphocytic white blood cells). Common skin tumors are basal cell carcinoma, hemangioma, and mast cell tumors.',
+      ],
+    },
+    {
+      id: 'vet-aleutian-disease',
+      heading: 'Aleutian disease',
+      paragraphs: [
+        'Aleutian disease is caused by the same parvovirus that causes Aleutian disease in mink, however, the disease is quite different between these two species. In mink, AD results in rapidly life-threatening immune-mediated glomerulonephritis, vasculitis, and hypergammaglobulinemia. In ferrets, there are notable similarities, including a hypergammaglobulinemia, and in late stages of the disease, an immune complex glomerulonephritis; however, the disease is much more insidious, with a progression of as long as 2 years.',
+      ],
+    },
+    {
+      id: 'vet-ece',
+      heading: 'Epizootic catarrhal enteritis',
+      paragraphs: [
+        'Epizootic catarrhal enteritis. ECE is a diarrheal disease of ferrets which causes epizootics of high morbidity (up to 100%), but low mortality. The diarrhea is rapidly dehydrating and most mortalities occur in older animals with concurrent illness.',
+      ],
+    },
+    {
+      id: 'vet-aae',
+      heading: 'Adrenal-associated endocrinopathy',
+      paragraphs: [
+        'Adrenal-associated endocrinopathy. AAE is a common endocrine disorder of middle aged to older ferrets. The syndrome is the result of proliferative lesions in the adrenal cortex which secrete excess amounts of estrogenic hormones. As a result of this excess estrogen, affected ferrets exhibit a range of cutaneous, behavioral, and reproductive signs.',
+      ],
+    },
+    {
+      id: 'vet-proliferative-colitis',
+      heading: 'Proliferative colitis',
+      paragraphs: [
+        'Proliferative colitis is an uncommon disease which is usually seen in male ferrets under one year of age. The disease is sporadic. Clinical signs include tenesmus and production of small, frequent bowel movements which often contain frank blood and mucus. The disease is caused by a campylobacter-like organism which results in asymmetrical proliferation of immature epithelium, causing marked thickening of the wall.',
+      ],
+    },
+  ],
+};
+
+export const HANDLING_CONTENT: HandlingContent = {
+  steps: [
+    {
+      id: 'handling-step-1',
+      stepLabel: 'Step One',
+      text: 'Approach the cage calmly and quietly. Ferrets are very inquisitive animals, so as you open the cage, allow or encourage the ferret to come to you. Remember – ferrets have poor eyesight, so they may bite by mistake if you reach into a cage too suddenly.',
+    },
+    {
+      id: 'handling-step-2',
+      stepLabel: 'Step Two',
+      text: 'Lift the ferret from the cage by grasping around the shoulders and neck with one hand and supporting the hindquarters with the other. It is important to ensure the hindquarters are well supported as ferrets can be very wriggly and you want to avoid serious injury through their long bodies twisting.',
+      subBullet:
+        'If the ferret is trying to bite, hold around its shoulders and neck and place your thumb (of the same hand) under its chin to prevent it from dropping its head down to bite.',
+      imageUrl: '/Handling/picture/step2-handling.png',
+      imageAlt:
+        'Proper two-handed ferret hold supporting the shoulders and neck with one hand and hindquarters with the other',
+    },
+  ],
+  scruffWarningHeading: 'Never pick up a ferret by scruffing',
+  scruffWarningText:
+    'Never pick up a ferret by scruffing alone, as their full body weight hanging from the scruff causes discomfort and teaches them to associate being lifted with unpleasant sensations.',
+  topicCards: [
+    {
+      id: 'handling-topic-socialization',
+      heading: 'How socialization impacts ferrets',
+      paragraphs: [
+        'Socialization involves the systematic exposure to varied experiences, people, environments, and stimuli that creates confident, adaptable ferrets capable of coping with the demands of domestic life.',
+        'Well-handled, thoroughly socialized ferrets enjoy a dramatically higher quality of life than their poorly adjusted counterparts.',
+        'Undersocialized ferrets experience chronic stress when confronted with novel situations their limited experience has not prepared them to handle. This stress affects immune function, digestive health, and overall physical wellbeing in addition to psychological welfare.',
+      ],
+    },
+    {
+      id: 'handling-topic-trust-handling',
+      heading: 'Trust handling',
+      paragraphs: [
+        'Ferrets who have learned to trust handling become genuinely affectionate companions who seek out contact rather than merely tolerating it.',
+        'Watch for any signs of reduced tolerance that might indicate pain, illness, or developing fearfulness requiring attention.',
+      ],
+    },
+    {
+      id: 'handling-topic-environmental-factors',
+      heading: 'Environmental factors',
+      paragraphs: [
+        'Environmental factors significantly impact handling and socialization success. Ferrets handled only when tired or full may associate handling with these low-energy states rather than developing active engagement.',
+      ],
+    },
+    {
+      id: 'handling-topic-food-rewards',
+      heading: 'High-value food rewards',
+      paragraphs: [
+        'High-value food rewards provide the essential motivation for building positive handling associations. Most ferrets respond powerfully to salmon oil, which can be dispensed from squeeze bottles or droppers for precise delivery during handling. Freeze-dried meat treats, particularly those made from rabbit, chicken, or duck, offer convenient rewards that most ferrets find highly appealing.',
+      ],
+    },
+    {
+      id: 'handling-topic-blanket-handling',
+      heading: 'Blanket handling',
+      paragraphs: [
+        'Ferrets often enjoy burrowing into soft materials, making blanket handling sessions particularly rewarding. Wrapping a ferret in a towel provides secure restraint for grooming procedures with less stress than manual holding alone.',
+      ],
+    },
+  ],
+};
 
 export const NUTRITION_QA_ITEMS: NutritionQAItem[] = [
   {
@@ -186,7 +344,7 @@ export const HOUSING_HOTSPOTS: HousingHotspot[] = [
     id: 'hotspot-window',
     index: 6,
     point: 'at window',
-    label: 'Temperature Control (< 32°C)',
+    label: 'Temperature must < 32°C',
     text: 'Ferrets are very sensitive to heatstroke. Keep the temperature below 32°C.',
     x: 53,
     y: 7,
@@ -195,7 +353,7 @@ export const HOUSING_HOTSPOTS: HousingHotspot[] = [
     id: 'hotspot-litter-box',
     index: 7,
     point: 'litter box',
-    label: 'Corner Litter Box',
+    label: 'A litter Box at coner',
     text: 'Keep the litter box in a corner for ferrets to defecate and urinate.',
     x: 27,
     y: 91,
@@ -222,7 +380,7 @@ export const HOUSING_HOTSPOTS: HousingHotspot[] = [
     id: 'hotspot-ceramic-bowl',
     index: 10,
     point: 'left ceramic bowl',
-    label: 'Heavy Ceramic Bowl',
+    label: 'A heavy Ceramic Bowl',
     text: 'Ferrets easily tip over their dishes. Use heavy ceramic bowls that attach securely to the cage. Also, it is easier for them to drink from a heavy ceramic bowl than a sipper bottle.',
     x: 22,
     y: 50,
@@ -266,68 +424,22 @@ export const FERRET_SECTIONS: FerretSection[] = [
     number: '03',
     navLabel: 'Handling',
     title: 'Handling',
-    subtitle:
-      'Safe physical restraint, socialization techniques, body language interpretation, and bite training',
-    introPlaceholder:
-      '[Placeholder — Handling Overview] This section will describe proper techniques for approaching, lifting, and supporting a ferret safely, alongside behavioral cues during play and clinical examination. Replace this text with your handling protocols.',
-    subtopics: [
-      {
-        id: 'handling-support',
-        heading: 'Physical Support & Restraint Techniques',
-        placeholderLead:
-          '[Placeholder — Lifting & Holding] Insert step-by-step instructions on two-handed chest and hindquarter support, as well as gentle scruffing for veterinary or grooming procedures.',
-        placeholderBody:
-          'Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.',
-        imagePlaceholderCaption:
-          'Figure 3.1 Placeholder — Reserved for photograph demonstrating proper two-handed anatomical support.',
-      },
-      {
-        id: 'handling-behavior',
-        heading: 'Behavioral Cues, Socialization & Routine Grooming',
-        placeholderLead:
-          '[Placeholder — Behavior & Grooming] Insert notes on vocalizations, war-dance posture, kit nipping training, nail trimming, and ear cleaning here.',
-        placeholderBody:
-          'Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit.',
-        imagePlaceholderCaption:
-          'Figure 3.2 Placeholder — Reserved for grooming restraint or behavioral posture reference image.',
-      },
-    ],
-    notesPlaceholder:
-      '[Placeholder — Key Handling Summary] Add key handling safety reminders and socialization milestones here.',
+    subtitle: '',
+    introPlaceholder: '',
+    subtopics: [],
+    notesPlaceholder: '',
+    handlingContent: HANDLING_CONTENT,
   },
   {
     id: 'veterinary-issues',
     number: '04',
     navLabel: 'Significant Veterinary Issues',
     title: 'Significant Veterinary Issues',
-    subtitle:
-      'Endocrine disorders, neoplasms, viral pathologies, gastrointestinal emergencies, and preventive care',
-    introPlaceholder:
-      '[Placeholder — Veterinary Issues Overview] This section will cover the major clinical conditions encountered in domestic ferrets, alongside vaccination schedules and routine diagnostic screening. Replace this paragraph with your clinical overview.',
-    subtopics: [
-      {
-        id: 'vet-endocrine-neoplasia',
-        heading: 'Adrenal Disease, Insulinoma & Lymphoma',
-        placeholderLead:
-          '[Placeholder — Endocrine & Neoplastic Conditions] Insert etiology, clinical signs (alopecia, lethargy, hypoglycemia), diagnostic workups, and medical/surgical management here.',
-        placeholderBody:
-          'Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam.',
-        imagePlaceholderCaption:
-          'Figure 4.1 Placeholder — Reserved for clinical presentation reference photo or endocrine diagnostic pathway diagram.',
-      },
-      {
-        id: 'vet-infectious-preventive',
-        heading: 'Infectious Diseases, GI Foreign Bodies & Preventive Medicine',
-        placeholderLead:
-          '[Placeholder — Infectious & Emergency Care] Insert details on Canine Distemper Virus, Influenza, Epizootic Catarrhal Enteritis (ECE), gastrointestinal obstructions, and annual checkups here.',
-        placeholderBody:
-          'Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus.',
-        imagePlaceholderCaption:
-          'Figure 4.2 Placeholder — Reserved for preventive vaccination timeline or clinical examination photograph.',
-      },
-    ],
-    notesPlaceholder:
-      '[Placeholder — Key Veterinary Summary] Add emergency red-flag symptoms and annual vaccination / bloodwork schedule details here.',
+    subtitle: '',
+    introPlaceholder: '',
+    subtopics: [],
+    notesPlaceholder: '',
+    veterinaryContent: VETERINARY_CONTENT,
   },
 ];
 

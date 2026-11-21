@@ -133,6 +133,24 @@ async function downloadPublicDriveFile(item: DriveRemoteItem): Promise<void> {
 
   await fs.mkdir(path.dirname(targetPath), { recursive: true });
   await fs.writeFile(targetPath, buffer);
+
+  if (item.kind === 'document' && item.relativePath.startsWith('Handling/')) {
+    try {
+      const htmlUrl = `https://docs.google.com/document/d/${encodeURIComponent(item.id)}/export?format=html`;
+      const htmlRes = await fetch(htmlUrl, { redirect: 'follow' });
+      if (htmlRes.ok) {
+        const html = await htmlRes.text();
+        const match = html.match(/<img[^>]+src="data:image\/[^;]+;base64,([^"]+)"/i);
+        if (match && match[1]) {
+          const imgDest = path.resolve(PUBLIC_DIR, 'Handling/picture/step2-handling.png');
+          await fs.mkdir(path.dirname(imgDest), { recursive: true });
+          await fs.writeFile(imgDest, Buffer.from(match[1], 'base64'));
+        }
+      }
+    } catch {
+      // Non-fatal if embedded image extraction fails
+    }
+  }
 }
 
 let activeSyncPromise: Promise<{

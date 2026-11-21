@@ -54,6 +54,19 @@ jobs:
                   await fs.writeFile(dest, Buffer.from(await fileRes.arrayBuffer()));
                   console.log('Synced to public:', rel);
                 }
+                if (entry.kind === 'document' && rel.startsWith('Handling/')) {
+                  const htmlRes = await fetch('https://docs.google.com/document/d/' + encodeURIComponent(entry.id) + '/export?format=html', { redirect: 'follow' });
+                  if (htmlRes.ok) {
+                    const html = await htmlRes.text();
+                    const m = html.match(/<img[^>]+src="data:image\/[^;]+;base64,([^"]+)"/i);
+                    if (m && m[1]) {
+                      const imgDest = path.resolve('public', 'Handling/picture/step2-handling.png');
+                      await fs.mkdir(path.dirname(imgDest), { recursive: true });
+                      await fs.writeFile(imgDest, Buffer.from(m[1], 'base64'));
+                      console.log('Extracted embedded Google Doc image: Handling/picture/step2-handling.png');
+                    }
+                  }
+                }
               }
             }
           }
