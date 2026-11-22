@@ -156,14 +156,14 @@ export const VETERINARY_CONTENT: VeterinaryContent = {
       id: 'vet-ece',
       heading: 'Epizootic catarrhal enteritis',
       paragraphs: [
-        'Epizootic catarrhal enteritis. ECE is a diarrheal disease of ferrets which causes epizootics of high morbidity (up to 100%), but low mortality. The diarrhea is rapidly dehydrating and most mortalities occur in older animals with concurrent illness.',
+        'Epizootic catarrhal enteritis is a diarrheal disease of ferrets which causes epizootics of high morbidity (up to 100%), but low mortality. The diarrhea is rapidly dehydrating and most mortalities occur in older animals with concurrent illness.',
       ],
     },
     {
       id: 'vet-aae',
       heading: 'Adrenal-associated endocrinopathy',
       paragraphs: [
-        'Adrenal-associated endocrinopathy. AAE is a common endocrine disorder of middle aged to older ferrets. The syndrome is the result of proliferative lesions in the adrenal cortex which secrete excess amounts of estrogenic hormones. As a result of this excess estrogen, affected ferrets exhibit a range of cutaneous, behavioral, and reproductive signs.',
+        'Adrenal-associated endocrinopathy is a common endocrine disorder of middle aged to older ferrets. The syndrome is the result of proliferative lesions in the adrenal cortex which secrete excess amounts of estrogenic hormones. As a result of this excess estrogen, affected ferrets exhibit a range of cutaneous, behavioral, and reproductive signs.',
       ],
     },
     {
