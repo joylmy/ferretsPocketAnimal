@@ -19,7 +19,7 @@ export const HERO_CONTENT: HeroContent = {
   eyebrow: '',
   title: 'The Essential Pet Ferret Care Guide',
   intro:
-    'Are you considering getting a pet ferret? Here’s everything you need to know.',
+    'Are you considering getting a pet ferret? Here is everything you need to know.',
   stickerImageUrl: '/assets/aistudio/ferretHero_8f5a07bc.jpg',
   speechBubbleMain: 'Dook dook!',
   speechBubbleSub: '(Happy ferret sound)',
@@ -394,7 +394,7 @@ export const FERRET_SECTIONS: FerretSection[] = [
     navLabel: 'Housing',
     title: 'Housing',
     subtitle:
-      'Explore the essential elements of an ideal ferret enclosure—click the blue dots below to inspect each housing feature.',
+      'Click the blue dot to find what is an ideal Ferret setting.',
     introPlaceholder: '',
     subtopics: [],
     notesPlaceholder: '',
