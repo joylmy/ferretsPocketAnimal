@@ -133,60 +133,36 @@ export const SectionBlock: React.FC<SectionBlockProps> = ({
       </div>
 
       {/* Section Header */}
-      {(() => {
-        const hasHeaderRightContent =
-          Boolean(section.subtitle) ||
-          (!hasDriveDocs &&
-            !hasHotspots &&
-            !hasQaItems &&
-            !hasHandlingContent &&
-            !hasVeterinaryContent &&
-            Boolean(section.introPlaceholder));
-
-        return (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12 mb-6 sm:mb-8">
-            <div
-              className={
-                hasHeaderRightContent ? 'lg:col-span-4' : 'lg:col-span-12'
-              }
-            >
-              <div className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[#FBF9F5] bg-[#4E3524] border border-[#3D291B] rounded-full px-3 py-1 mb-3">
-                <PawPrint
-                  className="w-3 h-3 text-[#FBF9F5]"
-                  aria-hidden="true"
-                />
-                <span>Section {section.number}</span>
-              </div>
-              <h2
-                id={`heading-${section.id}`}
-                className="text-2xl sm:text-3xl lg:text-4xl font-serif font-medium text-[#3A4D2E] tracking-tight sm:whitespace-nowrap"
-              >
-                {section.title}
-              </h2>
-            </div>
-
-            {hasHeaderRightContent && (
-              <div className="lg:col-span-8">
-                {section.subtitle && (
-                  <p className="text-base sm:text-lg font-medium text-[#3A4D2E]/90 leading-relaxed mb-2 max-w-2xl">
-                    {section.subtitle}
-                  </p>
-                )}
-                {!hasDriveDocs &&
-                  !hasHotspots &&
-                  !hasQaItems &&
-                  !hasHandlingContent &&
-                  !hasVeterinaryContent &&
-                  section.introPlaceholder && (
-                    <p className="text-sm sm:text-base text-stone-600 leading-relaxed max-w-2xl">
-                      {section.introPlaceholder}
-                    </p>
-                  )}
-              </div>
-            )}
-          </div>
-        );
-      })()}
+      <div className="mb-6 sm:mb-8">
+        <div className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[#FBF9F5] bg-[#4E3524] border border-[#3D291B] rounded-full px-3 py-1 mb-3">
+          <PawPrint
+            className="w-3 h-3 text-[#FBF9F5]"
+            aria-hidden="true"
+          />
+          <span>Section {section.number}</span>
+        </div>
+        <h2
+          id={`heading-${section.id}`}
+          className="text-2xl sm:text-3xl lg:text-4xl font-serif font-medium text-[#3A4D2E] tracking-tight sm:whitespace-nowrap"
+        >
+          {section.title}
+        </h2>
+        {section.subtitle && (
+          <p className="mt-2.5 text-base sm:text-lg font-medium text-[#3A4D2E]/90 leading-relaxed max-w-2xl">
+            {section.subtitle}
+          </p>
+        )}
+        {!hasDriveDocs &&
+          !hasHotspots &&
+          !hasQaItems &&
+          !hasHandlingContent &&
+          !hasVeterinaryContent &&
+          section.introPlaceholder && (
+            <p className="mt-2 text-sm sm:text-base text-stone-600 leading-relaxed max-w-2xl">
+              {section.introPlaceholder}
+            </p>
+          )}
+      </div>
 
       {/* Interactive Hotspot Diagram (e.g., Housing Section) */}
       {hasHotspots ? (
